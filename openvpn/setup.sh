@@ -15,7 +15,7 @@ docker build \
 docker run -d --cap-add=NET_ADMIN \
   -p 1194:1194/udp -p $WEB_SERVER_PORT:8080/tcp \
   -e HOST_ADDR="$HOST_ADDR" \
-  --name dockovpn internal-dockovpn:latest
+  --name dockovpn --restart=unless-stopped internal-dockovpn:latest
 
 # Cleanup
 cd .. && rm -rf docker-openvpn

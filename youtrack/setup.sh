@@ -9,4 +9,5 @@ docker build \
   -t internal-youtrack:latest .
 
 # Run the container
-docker run -d -p $EXTERNAL_PORT:8080 --name youtrack internal-youtrack:latest
+docker run -d -p $EXTERNAL_PORT:8080 \
+  --name youtrack --restart=unless-stopped internal-youtrack:latest
